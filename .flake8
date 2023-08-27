@@ -10,3 +10,6 @@ exclude =
   ./pep_parse/pep_parse/settings.py
   ./pep_parse/pep_parse/middlewares.py
   __init__.py
+  .env
+  env
+  venv/

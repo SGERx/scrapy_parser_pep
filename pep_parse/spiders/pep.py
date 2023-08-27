@@ -1,5 +1,3 @@
-import re
-
 import scrapy
 
 from pep_parse.items import PepParseItem
@@ -8,7 +6,7 @@ from pep_parse.items import PepParseItem
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['http://peps.python.org/']
+    start_urls = ['https://peps.python.org/']
 
     def parse(self, response):
         """Сбор ссылок на PEP из индекса"""
@@ -16,9 +14,9 @@ class PepSpider(scrapy.Spider):
         tbody = numerical_index.css("tbody")
         links = tbody.css("a::attr(href)").getall()
         for link in links:
-            yield response.follow(link, callback=self.parse_link)
+            yield response.follow(link, callback=self.parse_pep)
 
-    def parse_link(self, response):
+    def parse_pep(self, response):
         number, name = response.css(
             'h1.page-title::text'
         ).get().split(' – ', 1)

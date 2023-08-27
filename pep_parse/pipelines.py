@@ -28,7 +28,7 @@ class PepParsePipeline:
     def process_item(self, item, spider):
         pep_status = item['status']
         if self.results.get(pep_status):
-            self.results[pep_status] = self.results[pep_status]+1
+            self.results[pep_status] = self.results[pep_status] + 1
         else:
             self.results[pep_status] = 1
         return item
