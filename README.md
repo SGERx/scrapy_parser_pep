@@ -2,6 +2,11 @@
 
 Парсер документов PEP на базе фреймворка Scrapy.
 
+## Стек
+
+Python 3.9
+Scrapy
+
 ## Описание
 
 "Паук" собирает документы PEP с ресурса [https://peps.python.org/](https://peps.python.org/) и записывает результаты в файлы в папке results:
